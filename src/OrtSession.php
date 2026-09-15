@@ -49,7 +49,9 @@ final class OrtSession implements Session
         self::assertModelPath($modelPath);
 
         $this->runtimeSession = $runtimeSession ?? $this->openRuntime($modelPath);
-        $this->valueFactory = $valueFactory ?? Closure::fromCallable([$this, 'createOrtValue']);
+        $this->valueFactory = $valueFactory ?? function (Tensor $tensor): object {
+            return $this->createOrtValue($tensor);
+        };
 
         try {
             $this->inputs = self::normalizeSpecifications($this->runtimeCall('inputs'), 'input');
