@@ -28,3 +28,4 @@ jobs:
           api_token: ${{ secrets.PACKAGIST_API_KEY }}
           package_name: eloquage/onnx
           domain: packagist.org
+          package_base_url: https://github.com
