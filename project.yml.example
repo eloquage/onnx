@@ -1,0 +1,15 @@
+name: eloquage-onnx
+mode: ext
+php-version: "8.5"
+optimize: 2
+job: 4
+build-dir: build
+cxx-std: c++17
+
+sources:
+  - src
+  - native
+
+ignore:
+  - tests
+  - vendor
