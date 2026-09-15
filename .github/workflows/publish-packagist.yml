@@ -1,0 +1,30 @@
+name: Publish Packagist
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require Packagist credentials
+        env:
+          PACKAGIST_USERNAME: ${{ vars.PACKAGIST_USERNAME }}
+          PACKAGIST_API_KEY: ${{ secrets.PACKAGIST_API_KEY }}
+        run: |
+          test -n "$PACKAGIST_USERNAME"
+          test -n "$PACKAGIST_API_KEY"
+
+      - name: Request Packagist update
+        uses: wscourge/gha-packagist-publish@a16eb68dbf761af729985939e41e81b59ac37da2
+        with:
+          username: ${{ vars.PACKAGIST_USERNAME }}
+          api_token: ${{ secrets.PACKAGIST_API_KEY }}
+          package_name: eloquage/onnx
+          domain: packagist.org

@@ -1,0 +1,29 @@
+---
+description: Eloquage package conventions (framework-agnostic PHP)
+globs: src/**/*.php,tests/**/*.php,composer.json
+alwaysApply: false
+---
+
+# Eloquage package
+
+- Public PHP API under `src/` is the source of truth for consumers.
+- Stay framework-agnostic: no Illuminate, no Laravel service providers.
+- Always ship a pure-PHP implementation. Native TypePHP acceleration is optional.
+- Do not add `swoole/typephp` to Composer `require` / `require-dev` for consumers.
+- Tooling: Pest (`composer test`) and Pint (`composer format`).
+- Coverage gate for package changes: `vendor/bin/pest --coverage --min=90`.
+- Consumers: PHP 8.3+. CI currently uses 8.4. TypePHP compile uses PHP 8.5 syntax.
+
+```php
+// ❌ BAD — Laravel coupling
+use Illuminate\Support\Collection;
+
+// ✅ GOOD — package-owned types
+final class Vector
+{
+    public function name(): string
+    {
+        return 'vector';
+    }
+}
+```

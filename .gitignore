@@ -31,3 +31,10 @@ psalm.xml
 testbench.yaml
 /docs
 /coverage
+
+# TypePHP generated project file
+project.yml
+
+# TypePHP native artifacts
+*.so
+*.dll

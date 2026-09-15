@@ -1,0 +1,23 @@
+prefix_rule(
+    pattern = ["docker", "build"],
+    decision = "allow",
+    justification = "Build the TypePHP builder or this package extension image.",
+)
+
+prefix_rule(
+    pattern = ["docker", "run"],
+    decision = "allow",
+    justification = "Run tpc in eloquage-typephp-builder with the package mounted.",
+)
+
+prefix_rule(
+    pattern = ["docker", ["rmi", "prune"]],
+    decision = "prompt",
+    justification = "Destructive image cleanup. Confirm before removing images or pruning.",
+)
+
+prefix_rule(
+    pattern = ["docker", "system"],
+    decision = "prompt",
+    justification = "docker system prune/df can delete unrelated resources. Confirm first.",
+)

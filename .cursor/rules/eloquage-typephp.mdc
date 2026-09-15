@@ -1,0 +1,15 @@
+---
+description: TypePHP extension builds for this Eloquage package
+globs: native/**,TYPEPHP.md,project.yml*,Dockerfile
+alwaysApply: false
+---
+
+# TypePHP
+
+- Compile as a PHP **extension** (`mode: ext` in `project.yml`). No `main()`.
+- Build only in Docker via `eloquage-typephp-builder` (harness `docker/typephp/build-package.sh` or `docker run -v "$PWD":/src`).
+- Copy `project.yml.example` to `project.yml` (gitignored). Do not commit generated YAML or `build/`.
+- No free-floating top-level executable statements. TypePHP is always strict types.
+- Check https://github.com/swoole/typephp/blob/master/docs/en/INCOMPATIBLE_PHP_FEATURES.md before using dynamic PHP.
+- Public API stays in `src/`. `native/` is optional acceleration.
+- Never require TypePHP for Composer consumers. Pure-PHP fallback is mandatory.

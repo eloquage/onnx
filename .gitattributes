@@ -13,3 +13,9 @@
 /art export-ignore
 /docs export-ignore
 /UPGRADING.md export-ignore
+
+# Agent / TypePHP tooling: keep in git, omit from Packagist dist
+/Dockerfile export-ignore
+/.dockerignore export-ignore
+/.codex export-ignore
+/.cursor export-ignore

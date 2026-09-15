@@ -1,0 +1,16 @@
+name: Native compile
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  native:
+    uses: eloquage/typephp-builder/.github/workflows/native-ci.yml@v1
+    secrets: inherit

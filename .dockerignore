@@ -1,0 +1,16 @@
+.git
+.github
+.cursor
+.codex
+vendor
+tests
+build
+coverage
+.phpunit.cache
+composer.lock
+README.md
+CHANGELOG.md
+LICENSE.md
+AGENTS.md
+CLAUDE.md
+TYPEPHP.md

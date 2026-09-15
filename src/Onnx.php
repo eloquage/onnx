@@ -14,4 +14,9 @@ final class Onnx
     {
         return 'onnx';
     }
+
+    public static function session(string $modelPath): Session
+    {
+        return new OrtSession($modelPath);
+    }
 }
