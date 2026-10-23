@@ -1,5 +1,7 @@
 # eloquage/onnx
 
+<p align="center"><img src="art/banner.png" alt="onnx package banner" width="100%"></p>
+
 Thin ONNX Runtime helpers for PHP inference, with a deterministic test
 session and an optional runtime adapter.
 
